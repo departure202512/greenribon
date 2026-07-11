@@ -135,8 +135,8 @@
             <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
                 <!-- 自己紹介セクションのプロフィール画像としてロゴを配置 -->
                 <div class="flex justify-center mb-8">
-                    <div class="relative w-48 h-48 md:w-56 md:h-56 bg-white rounded-full shadow-lg p-6 flex items-center justify-center border-4 border-emerald-50 dark:border-gray-800 transition-transform hover:scale-105 duration-300">
-                        <img src="grlogo.jpg" alt="Green Ribbon Rider Logo" class="w-full h-full object-contain" onerror="imgFallback(this, 240, 240, 'Logo')">
+                    <div class="relative w-48 h-48 md:w-56 md:h-56 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-emerald-50 dark:border-gray-800 transition-transform hover:scale-105 duration-300 overflow-hidden">
+                        <img src="grlogo.jpg" alt="Green Ribbon Rider Logo" class="w-[85%] h-[85%] object-contain" onerror="imgFallback(this, 240, 240, 'Logo')">
                     </div>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">私たちの活動について</h2>
@@ -351,8 +351,8 @@
                 <div class="relative bg-gray-50 dark:bg-dark-surface rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-in-up flex flex-col px-8 pb-8 pt-40 md:pt-48 mt-8 lg:mt-0">
                     <div class="absolute -top-20 md:-top-24 left-1/2 transform -translate-x-1/2">
                         <div class="w-48 h-56 md:w-56 md:h-64 rounded-2xl border-4 border-white dark:border-dark-surface shadow-lg overflow-hidden bg-white">
-                            <!-- 顔の大きさを均等にしつつ、山本様と高さを並行に揃えるための微調整 -->
-                            <img src="mj.jpg" alt="武藤淳" class="w-full h-full object-cover object-top transform scale-[1.15] origin-top" onerror="imgFallback(this, 224, 256, '武藤 淳')">
+                            <!-- 顔の大きさを均等にしつつ、ネクタイが見えるように約3mm(-12px)上に微調整 -->
+                            <img src="mj.jpg" alt="武藤淳" class="w-full h-full object-cover object-top transform scale-[1.15] origin-top -translate-y-3" onerror="imgFallback(this, 224, 256, '武藤 淳')">
                         </div>
                     </div>
                     <div class="text-center mb-6">
