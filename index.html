@@ -515,7 +515,10 @@
 
             <div class="bg-white dark:bg-dark-bg rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100 dark:border-gray-800 fade-in-up">
                 <!-- Formspreeの連携用フォーム -->
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                <form action="https://formspree.io/f/" method="POST" class="space-y-6">
+                    <!-- 受信時のメール件名を固定して、別サイトからの問い合わせと区別しやすくする -->
+                    <input type="hidden" name="_subject" value="【グリーンリボンライダー】Webサイトからのお問い合わせ">
+                    
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">お名前 <span class="text-red-500">*</span></label>
                         <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-dark-surface text-gray-900 dark:text-white transition-colors">
