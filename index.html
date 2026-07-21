@@ -87,6 +87,7 @@
                 <nav class="hidden md:flex space-x-8">
                     <a href="#about" class="text-sm font-semibold hover:text-emerald-500 transition-colors">活動について</a>
                     <a href="#mission" class="text-sm font-semibold hover:text-emerald-500 transition-colors">課題と使命</a>
+                    <a href="#gallery" class="text-sm font-semibold hover:text-emerald-500 transition-colors">ギャラリー</a>
                     <a href="#activities" class="text-sm font-semibold hover:text-emerald-500 transition-colors">実績・計画</a>
                     <a href="#team" class="text-sm font-semibold hover:text-emerald-500 transition-colors">チーム構成</a>
                     <a href="#contact" class="text-sm font-semibold hover:text-emerald-500 transition-colors">お問い合わせ</a>
@@ -238,17 +239,130 @@
         </div>
     </section>
 
-    <section class="py-10 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 overflow-hidden">
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <div class="w-full md:w-1/3 fade-in-up">
-                    <img src="IMG_7556.jpg" alt="チームメンバーとバイク" class="rounded-xl shadow-lg w-full h-64 object-cover" onerror="imgFallback(this, 600, 400, 'Team Photo 1')">
+    <section id="gallery" class="py-24 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">活動ギャラリー</h2>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto mb-6"></div>
+                <p class="text-gray-400">レース参戦や啓発活動の様子。写真は随時追加していきます。</p>
+            <!-- ギャラリーグリッド (Masonryレイアウト) -->
+            <!-- 今後写真を追加する場合は、この中にある <div class="break-inside-avoid..."> から </div> までのブロックをコピーして追加してください -->
+            <div class="columns-1 sm:columns-2 lg:columns-3 gap-6">
+                <!-- 写真1 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up">
+                    <img src="IMG_7557.jpg" alt="サーキット走行" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110" onerror="imgFallback(this, 600, 400, 'Gallery 1')">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">サーキット走行</p>
+                    </div>
                 </div>
-                <div class="w-full md:w-1/3 fade-in-up" style="transition-delay: 0.1s;">
-                    <img src="IMG_7555.jpg" alt="ライダー集合写真" class="rounded-xl shadow-lg w-full h-64 object-cover" onerror="imgFallback(this, 600, 400, 'Riders Photo')">
+                
+                <!-- 写真2 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.1s;">
+                    <img src="IMG_7556.jpg" alt="チームピット" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110" onerror="imgFallback(this, 600, 400, 'Gallery 2')">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">ピットでの集合写真</p>
+                    </div>
                 </div>
-                <div class="w-full md:w-1/3 fade-in-up" style="transition-delay: 0.2s;">
-                    <img src="IMG_7558.jpg" alt="チームメンバー集合写真" class="rounded-xl shadow-lg w-full h-64 object-cover" onerror="imgFallback(this, 600, 400, 'Team Photo 2')">
+
+                <!-- 写真3 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.2s;">
+                    <img src="IMG_7555.jpg" alt="ライダー集合写真" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110" onerror="imgFallback(this, 600, 400, 'Gallery 3')">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">ライダーたち</p>
+                    </div>
+                </div>
+
+                <!-- 写真4 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.3s;">
+                    <img src="IMG_7558.jpg" alt="チームメンバー集合写真" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110" onerror="imgFallback(this, 600, 400, 'Gallery 4')">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">チームメンバー全員で</p>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- 以下、今後追加するための画像枠（10枚分） -->
+                <!-- ========================================== -->
+                <!-- 追加する際は、src="https://placehold.co/..." の部分を実際のファイル名に書き換えてください -->
+                
+                <!-- 追加枠 1 (横長想定) -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up">
+                    <img src="IMG_8602.jpg" alt="啓発活動" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">啓発活動</p>
+                    </div>
+                </div>
+                
+                <!-- 追加枠 2 (縦長想定) -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.1s;">
+                    <img src="IMG_8489.jpg" alt="レースクイーン" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">レースクイーン</p>
+                    </div>
+                </div>
+
+                <!-- 追加枠 3 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.2s;">
+                    <img src="IMG_8594.jpg" alt="チーム全員で" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">チーム全員で</p>
+                    </div>
+                </div>
+
+                <!-- 追加枠 4 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.3s;">
+                    <img src="IMG_8595.jpg" alt="レースクイーンとレーサー" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">レースクイーンとレーサー</p>
+                    </div>
+                </div>
+
+                <!-- 追加枠 5 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up">
+                    <img src="IMG_8596.jpg" alt="レースクイーンとレーサー" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">レースクイーンとレーサー</p>
+                    </div>
+                </div>
+
+                <!-- 追加枠 6 (縦長想定) -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.1s;">
+                    <img src="IMG_1285.jpg" alt="応援メンバーとレースクイーン" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">応援メンバーとレースクイーン</p>
+                    </div>
+                </div>
+
+                <!-- 追加枠 7 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.2s;">
+                    <img src="https://placehold.co/600x400/10b981/ffffff?text=New+Photo" alt="ギャラリー追加写真" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">キャプションを追加</p>
+                    </div>
+                </div>
+
+                <!-- 追加枠 8 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.3s;">
+                    <img src="https://placehold.co/600x400/10b981/ffffff?text=New+Photo" alt="ギャラリー追加写真" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">キャプションを追加</p>
+                    </div>
+                </div>
+
+                <!-- 追加枠 9 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up">
+                    <img src="https://placehold.co/600x400/10b981/ffffff?text=New+Photo" alt="ギャラリー追加写真" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">キャプションを追加</p>
+                    </div>
+                </div>
+
+                <!-- 追加枠 10 -->
+                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.1s;">
+                    <img src="https://placehold.co/600x400/10b981/ffffff?text=New+Photo" alt="ギャラリー追加写真" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <p class="text-sm font-bold text-white">キャプションを追加</p>
+                    </div>
                 </div>
             </div>
         </div>
