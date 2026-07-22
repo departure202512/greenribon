@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Green Ribbon Rider | 公式サイト</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -32,12 +33,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* カスタムスクロールバー */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background-color: #10b981; border-radius: 4px; }
         
-        /* フェードインアニメーション用クラス */
         .fade-in-up {
             opacity: 0;
             transform: translateY(40px);
@@ -48,17 +47,14 @@
             transform: translateY(0);
         }
 
-        /* ヒーローセクションのオーバーレイグラデーション */
         .hero-gradient {
             background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(16,185,129,0.3) 100%);
         }
 
-        /* シャープなデザインのための装飾 */
         .sharp-border {
             border-left: 4px solid #10b981;
         }
         
-        /* 連絡先フォーム入力欄のリセット */
         input:focus, textarea:focus {
             outline: none;
             border-color: #10b981;
@@ -67,7 +63,7 @@
     </style>
     
     <script>
-        // 画像読み込みエラー時のフォールバック処理
+        // 画像読み込みエラー時のフォールバック処理（必須）
         function imgFallback(img, width, height, text) {
             img.onerror = null;
             img.src = `https://placehold.co/${width}x${height}/10b981/ffffff?text=${encodeURIComponent(text)}`;
@@ -80,20 +76,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <!-- グリーンリボンのロゴ画像 -->
                     <img src="grlogo.jpg" alt="Team Green Ribbon Rider Logo" class="h-10 w-auto object-contain rounded drop-shadow-sm bg-white" onerror="imgFallback(this, 100, 100, 'GRR')">
                     <span class="font-bold text-lg tracking-tight hidden sm:block">Team Green Ribbon Rider</span>
                 </div>
-                <nav class="hidden md:flex space-x-8">
+                <nav class="hidden md:flex space-x-6 lg:space-x-8">
                     <a href="#about" class="text-sm font-semibold hover:text-emerald-500 transition-colors">活動について</a>
                     <a href="#mission" class="text-sm font-semibold hover:text-emerald-500 transition-colors">課題と使命</a>
-                    <a href="#gallery" class="text-sm font-semibold hover:text-emerald-500 transition-colors">ギャラリー</a>
                     <a href="#activities" class="text-sm font-semibold hover:text-emerald-500 transition-colors">実績・計画</a>
                     <a href="#team" class="text-sm font-semibold hover:text-emerald-500 transition-colors">チーム構成</a>
+                    <a href="#gallery" class="text-sm font-semibold hover:text-emerald-500 transition-colors">ギャラリー</a>
                     <a href="#contact" class="text-sm font-semibold hover:text-emerald-500 transition-colors">お問い合わせ</a>
                 </nav>
                 <div class="flex items-center">
-                    <!-- ダークモード切替トグル -->
                     <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -108,7 +102,6 @@
     </header>
 
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- ヒーロー背景画像 (サーキット走行中の画像) -->
         <div class="absolute inset-0 z-0">
             <img src="IMG_7557.jpg" alt="サーキットを走るグリーンリボンライダー" class="w-full h-full object-cover object-center" onerror="imgFallback(this, 1920, 1080, 'Hero Image')">
             <div class="absolute inset-0 hero-gradient"></div>
@@ -134,10 +127,10 @@
     <section id="about" class="py-24 bg-gray-50 dark:bg-dark-surface transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-                <!-- 自己紹介セクションのプロフィール画像としてロゴを配置 -->
                 <div class="flex justify-center mb-8">
-                    <div class="relative w-48 h-48 md:w-56 md:h-56 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-emerald-50 dark:border-gray-800 transition-transform hover:scale-105 duration-300 overflow-hidden">
-                        <img src="grlogo.jpg" alt="Green Ribbon Rider Logo" class="w-[85%] h-[85%] object-contain" onerror="imgFallback(this, 240, 240, 'Logo')">
+                    <!-- ロゴが見切れないように修正 -->
+                    <div class="relative w-56 h-56 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-emerald-50 dark:border-gray-800 transition-transform hover:scale-105 duration-300 overflow-hidden">
+                        <img src="grlogo.jpg" alt="Green Ribbon Rider Logo" class="w-[85%] h-auto object-contain" onerror="imgFallback(this, 240, 240, 'Logo')">
                     </div>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">私たちの活動について</h2>
@@ -150,7 +143,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 mt-12">
-                <!-- 臓器移植推進 -->
                 <div class="bg-white dark:bg-dark-bg p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow border border-gray-100 dark:border-gray-800 fade-in-up">
                     <div class="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
@@ -165,7 +157,6 @@
                     </ul>
                 </div>
 
-                <!-- 医療DX推進 -->
                 <div class="bg-white dark:bg-dark-bg p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow border border-gray-100 dark:border-gray-800 fade-in-up" style="transition-delay: 0.1s;">
                     <div class="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
@@ -190,7 +181,6 @@
                 <div class="w-16 h-1 bg-emerald-500 mx-auto"></div>
             </div>
 
-            <!-- データハイライト -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                 <div class="p-6 bg-gray-50 dark:bg-dark-surface rounded-xl text-center fade-in-up">
                     <p class="text-gray-500 dark:text-gray-400 text-sm font-bold mb-2">意思表示をしている国民の割合</p>
@@ -214,7 +204,6 @@
                 </div>
             </div>
 
-            <!-- なぜライダーが伝えるのか -->
             <div class="mt-20">
                 <h3 class="text-2xl font-bold text-center mb-10 fade-in-up">なぜ、ライダーが伝えるのか？</h3>
                 <div class="grid md:grid-cols-2 gap-8">
@@ -239,135 +228,6 @@
         </div>
     </section>
 
-    <section id="gallery" class="py-24 bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 fade-in-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">活動ギャラリー</h2>
-                <div class="w-16 h-1 bg-emerald-500 mx-auto mb-6"></div>
-                <p class="text-gray-400">レース参戦や啓発活動の様子。写真は随時追加していきます。</p>
-            <!-- ギャラリーグリッド (Masonryレイアウト) -->
-            <!-- 今後写真を追加する場合は、この中にある <div class="break-inside-avoid..."> から </div> までのブロックをコピーして追加してください -->
-            <div class="columns-1 sm:columns-2 lg:columns-3 gap-6">
-                <!-- 写真1 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up">
-                    <img src="IMG_7557.jpg" alt="サーキット走行" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110" onerror="imgFallback(this, 600, 400, 'Gallery 1')">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">サーキット走行</p>
-                    </div>
-                </div>
-                
-                <!-- 写真2 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.1s;">
-                    <img src="IMG_7556.jpg" alt="チームピット" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110" onerror="imgFallback(this, 600, 400, 'Gallery 2')">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">ピットでの集合写真</p>
-                    </div>
-                </div>
-
-                <!-- 写真3 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.2s;">
-                    <img src="IMG_7555.jpg" alt="ライダー集合写真" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110" onerror="imgFallback(this, 600, 400, 'Gallery 3')">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">ライダーたち</p>
-                    </div>
-                </div>
-
-                <!-- 写真4 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.3s;">
-                    <img src="IMG_7558.jpg" alt="チームメンバー集合写真" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110" onerror="imgFallback(this, 600, 400, 'Gallery 4')">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">チームメンバー全員で</p>
-                    </div>
-                </div>
-
-                <!-- ========================================== -->
-                <!-- 以下、今後追加するための画像枠（10枚分） -->
-                <!-- ========================================== -->
-                <!-- 追加する際は、src="https://placehold.co/..." の部分を実際のファイル名に書き換えてください -->
-                
-                <!-- 追加枠 1 (横長想定) -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up">
-                    <img src="IMG_8602.jpg" alt="啓発活動" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">啓発活動</p>
-                    </div>
-                </div>
-                
-                <!-- 追加枠 2 (縦長想定) -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.1s;">
-                    <img src="IMG_8489.jpg" alt="レースクイーン" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">レースクイーン</p>
-                    </div>
-                </div>
-
-                <!-- 追加枠 3 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.2s;">
-                    <img src="IMG_8594.jpg" alt="チーム全員で" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">チーム全員で</p>
-                    </div>
-                </div>
-
-                <!-- 追加枠 4 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.3s;">
-                    <img src="IMG_8595.jpg" alt="レースクイーンとレーサー" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">レースクイーンとレーサー</p>
-                    </div>
-                </div>
-
-                <!-- 追加枠 5 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up">
-                    <img src="IMG_8596.jpg" alt="レースクイーンとレーサー" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">レースクイーンとレーサー</p>
-                    </div>
-                </div>
-
-                <!-- 追加枠 6 (縦長想定) -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.1s;">
-                    <img src="IMG_1285.jpg" alt="応援メンバーとレースクイーン" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">応援メンバーとレースクイーン</p>
-                    </div>
-                </div>
-
-                <!-- 追加枠 7 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.1s;">
-                    <img src="IMG_8501.jpg" alt="RBアナウンサー" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">RBアナウンサー</p>
-                    </div>
-                </div>
-
-                <!-- 追加枠 8 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.3s;">
-                    <img src="IMG_8572.jpg" alt="RBアナウンサー" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">RBアナウンサー</p>
-                    </div>
-                </div>
-
-                <!-- 追加枠 9 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up">
-                    <img src="IMG_8491.jpg" alt="メディア取材を受けるチーム" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">メディア取材を受けるチーム</p>
-                    </div>
-                </div>
-
-                <!-- 追加枠 10 -->
-                <div class="break-inside-avoid mb-6 relative group overflow-hidden rounded-xl fade-in-up" style="transition-delay: 0.1s;">
-                    <img src="IMG_1278.jpg" alt="株式会社DEPARTURE代表" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p class="text-sm font-bold text-white">株式会社DEPARTURE代表</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="activities" class="py-24 bg-gray-50 dark:bg-dark-surface transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in-up">
@@ -376,7 +236,6 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-16">
-                <!-- 実績タイムライン -->
                 <div class="fade-in-up">
                     <h3 class="text-2xl font-bold mb-8 flex items-center gap-2">
                         <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -387,7 +246,6 @@
                             <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-white dark:ring-dark-surface"></div>
                             <p class="text-sm text-emerald-600 dark:text-emerald-400 font-bold">2015年</p>
                             <p class="text-gray-800 dark:text-gray-200 font-medium">鈴鹿8時間耐久オートバイレースへの啓発協賛を開始</p>
-                            <p class="text-xs text-gray-500 mt-1">読売・朝日・伊勢新聞に掲載</p>
                         </div>
                         <div class="relative">
                             <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-white dark:ring-dark-surface"></div>
@@ -398,7 +256,6 @@
                             <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-white dark:ring-dark-surface"></div>
                             <p class="text-sm text-emerald-600 dark:text-emerald-400 font-bold">2020年</p>
                             <p class="text-gray-800 dark:text-gray-200 font-medium">チームグリーンリボン発足。もて耐参戦開始</p>
-                            <p class="text-xs text-gray-500 mt-1">栃木テレビ取材</p>
                         </div>
                         <div class="relative">
                             <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-white dark:ring-dark-surface"></div>
@@ -418,7 +275,6 @@
                     </div>
                 </div>
 
-                <!-- 2026スケジュール -->
                 <div class="bg-white dark:bg-dark-bg p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 fade-in-up" style="transition-delay: 0.2s;">
                     <h3 class="text-2xl font-bold mb-6 text-center text-emerald-600 dark:text-emerald-400">2026年 参戦・啓発スケジュール</h3>
                     
@@ -460,17 +316,17 @@
             </div>
 
             <!-- 代表 & サポーター (フローティング・カードデザイン) -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-32 mb-24 mt-28">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-32 mb-24 mt-32">
                 <!-- 代表: 武藤淳 -->
-                <div class="relative bg-gray-50 dark:bg-dark-surface rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-in-up flex flex-col px-8 pb-8 pt-40 md:pt-48 mt-8 lg:mt-0">
-                    <div class="absolute -top-20 md:-top-24 left-1/2 transform -translate-x-1/2">
-                        <div class="w-48 h-56 md:w-56 md:h-64 rounded-2xl border-4 border-white dark:border-dark-surface shadow-lg overflow-hidden bg-white">
-                            <!-- 顔の大きさを均等にしつつ、ネクタイが見えるように約3mm(-12px)上に微調整 -->
-                            <img src="mj.jpg" alt="武藤淳" class="w-full h-full object-cover object-top transform scale-[1.15] origin-top -translate-y-3" onerror="imgFallback(this, 224, 256, '武藤 淳')">
+                <div class="relative bg-gray-50 dark:bg-dark-surface rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-in-up flex flex-col px-8 pb-8 pt-44 md:pt-48">
+                    <!-- 丸枠から、頭〜胸元まで入る縦長の角丸四角形に変更 -->
+                    <div class="absolute -top-24 left-1/2 transform -translate-x-1/2">
+                        <div class="w-48 h-60 md:w-56 md:h-72 rounded-2xl border-4 border-white dark:border-dark-surface shadow-lg overflow-hidden bg-white">
+                            <img src="mj.jpg" alt="武藤淳" class="w-full h-full object-cover object-top transform scale-[1.15] origin-top" onerror="imgFallback(this, 224, 288, '武藤 淳')">
                         </div>
                     </div>
                     <div class="text-center mb-6">
-                        <p class="text-xs font-bold text-emerald-500 mb-1 tracking-wider uppercase">運営母体 株式会社Departure代表</p>
+                        <p class="text-xs font-bold text-emerald-500 mb-1 tracking-wider uppercase">運営母体 代表</p>
                         <h4 class="text-2xl font-black text-gray-900 dark:text-white">武藤 淳</h4>
                     </div>
                     <div class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-4 flex-grow relative">
@@ -478,12 +334,13 @@
                         <div class="relative z-10 space-y-4">
                             <p>2025年にMSL代表藤木修次様からグリーリボンライダーの運営を引き継ぎました武藤淳と申します。2026年日本移植支援協会の理事となりバイク部門を藤木様から引き継ぎ運営する事となりました。このチームは医療従事者やバイクメーカーの方が多く在籍されており、2020年よりレース活動を通じて臓器移植の啓発活動続けて来られました。私もYoutubeを通じレース活動やツーリングの企画をサポートさせていただきました。</p>
                             <p>この度、そのご縁もあり全力で応援していきたいと思っております。皆様のご理解とご声援をどうぞよろしくお願いいたします。</p>
-                            <p>臓器移植の現状国内では少なく海外での実績が多い状況でした。<br>しかし「国際的な規制」「費用の高騰」「受け入れ制限」等の要因により以前にも増して非常に困難な状況なっています。<br>外国で臓器移植を受けるという事は今後、難しくなり実施出来なくなる可能性が高くなったきました。「臓器提供は自国内で自給自足すべき」という国際原則がイスタンブール宣言で確立された事を受け国内で実施する事が重要となってきています。</p>
-                            <p>近年、保険証がマイナンバーカードに実装され臓器移植の意思表示もデジタル的に連携が可能となってきました。これにより医療DXの中でマッチングさせる事が可能となってきたと思います。これらの事をバイクの皆さんと一緒に啓発活動をしていき臓器移植の理解を深め国内で移植が普通に実施される世界が出来るようにバックアップしていきたいと思います。</p>
+                            <p>臓器移植の現状国内では少なく海外での実績が多い状況でした。<br>しかし「国際的な規制」「費用の高騰」「受け入れ制限」等の要因により、以前にも増して非常に困難な状況なっています。</p>
+                            <p>外国で臓器移植を受けるという事は今後、難しくなり実施出来なくなる可能性が高くなったきました。「臓器提供は自国内で自給自足すべき」という国際原則がイスタンブール宣言で確立された事を受け、国内で実施する事が重要となってきています。</p>
+                            <p>近年、保険証がマイナンバーカードに実装され、臓器移植の意思表示もデジタル的に連携が可能となってきました。これにより医療DXの中でマッチングさせる事が可能となってきたと思います。これらの事をバイクの皆さんと一緒に啓発活動をしていき臓器移植の理解を深め、国内で移植が普通に実施される世界が出来るようにバックアップしていきたいと思います。</p>
                         </div>
                     </div>
-                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
-                        <p class="font-bold text-sm md:text-base text-emerald-600 dark:text-emerald-400 leading-relaxed">
+                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-emerald-600 dark:text-emerald-400">
+                        <p class="font-bold text-sm md:text-base leading-relaxed">
                             株式会社Departure代表取締役 兼<br>
                             NPO法人日本移植支援協会理事　武藤淳
                         </p>
@@ -491,15 +348,15 @@
                 </div>
 
                 <!-- サポーター: 山本ひろこ -->
-                <div class="relative bg-gray-50 dark:bg-dark-surface rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-in-up flex flex-col px-8 pb-8 pt-40 md:pt-48 mt-24 lg:mt-0" style="transition-delay: 0.1s;">
-                    <div class="absolute -top-20 md:-top-24 left-1/2 transform -translate-x-1/2">
-                        <div class="w-48 h-56 md:w-56 md:h-64 rounded-2xl border-4 border-white dark:border-dark-surface shadow-lg overflow-hidden bg-white">
-                            <!-- 頭が見切れないように object-top で上端を基準に配置 -->
-                            <img src="yamamoto_2.jpg" alt="山本ひろこ" class="w-full h-full object-cover object-top" onerror="this.onerror=function(){imgFallback(this, 224, 256, '山本 ひろこ')}; this.src='yamamoto.jpg';">
+                <div class="relative bg-gray-50 dark:bg-dark-surface rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-in-up flex flex-col px-8 pb-8 pt-44 md:pt-48" style="transition-delay: 0.1s;">
+                    <!-- 丸枠から、頭〜胸元まで入る縦長の角丸四角形に変更 -->
+                    <div class="absolute -top-24 left-1/2 transform -translate-x-1/2">
+                        <div class="w-48 h-60 md:w-56 md:h-72 rounded-2xl border-4 border-white dark:border-dark-surface shadow-lg overflow-hidden bg-white">
+                            <img src="yamamoto_2.jpg" alt="山本ひろこ" class="w-full h-full object-cover object-top" onerror="this.onerror=function(){imgFallback(this, 224, 288, '山本 ひろこ')}; this.src='yamamoto.jpg';">
                         </div>
                     </div>
                     <div class="text-center mb-6">
-                        <p class="text-xs font-bold text-emerald-500 mb-1 tracking-wider uppercase">目黒区議会議員</p>
+                        <p class="text-xs font-bold text-emerald-500 mb-1 tracking-wider uppercase">Team Supporter</p>
                         <h4 class="text-2xl font-black text-gray-900 dark:text-white">山本 ひろこ</h4>
                     </div>
                     <div class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-4 flex-grow relative">
@@ -511,8 +368,8 @@
                             <p>Team Green Ribbon Rider の皆さまが、レースという真剣勝負の場で命のメッセージを発信し続けていることは、社会にとって非常に意義深い挑戦です。<br>私自身、当事者の一人として、この活動を心から応援しています。</p>
                         </div>
                     </div>
-                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
-                        <p class="font-bold text-sm md:text-base text-emerald-600 dark:text-emerald-400 leading-relaxed">
+                    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-emerald-600 dark:text-emerald-400">
+                        <p class="font-bold text-sm md:text-base leading-relaxed">
                             目黒区議会議員 兼<br>
                             日本バイクオブザイヤー審査員　山本ひろこ
                         </p>
@@ -521,12 +378,9 @@
             </div>
 
             <!-- メンバーリスト (Riders & Mechanics) -->
-            <div class="max-w-4xl mx-auto bg-gray-50 dark:bg-dark-surface rounded-2xl p-8 shadow-md fade-in-up" style="transition-delay: 0.2s;">
                 <h4 class="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white border-b-2 border-emerald-500 inline-block mx-auto pb-2">Riders & Mechanics</h4>
                 
-                <!-- メンバーを2列のグリッドで配置 -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center sm:text-left">
-                    <!-- 酒井勇一 (先頭に移動・顔写真なし) -->
                     <div class="bg-white dark:bg-dark-bg p-5 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm transition-colors hover:border-emerald-300 dark:hover:border-emerald-700">
                         <p class="text-xs font-bold text-emerald-600 dark:text-emerald-400 mb-1">チーム代表・ライダー</p>
                         <p class="font-bold text-lg mb-1 text-gray-900 dark:text-white">酒井 勇一</p>
@@ -559,21 +413,19 @@
                 </div>
             </div>
 
-            <!-- レースクイーン (別枠で追加) -->
             <div class="max-w-4xl mx-auto bg-gray-50 dark:bg-dark-surface rounded-2xl p-8 shadow-md mt-12 fade-in-up" style="transition-delay: 0.3s;">
                 <h4 class="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white border-b-2 border-emerald-500 inline-block mx-auto pb-2">Race Queen</h4>
                 
                 <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-                    <!-- 写真 -->
-                    <div class="w-full max-w-xs md:w-72 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-                        <img src="IMG_7964.jpg" alt="いしい めぐみ" class="w-full h-auto object-cover" onerror="imgFallback(this, 320, 213, 'いしい めぐみ')">
+                    <!-- 写真: 横長画像を上部トリミングで表示し顔が見切れないように -->
+                    <div class="w-full max-w-sm md:w-80 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+                        <img src="IMG_7964.jpg" alt="いしい めぐみ" class="w-full h-auto object-cover object-top" onerror="imgFallback(this, 600, 400, 'いしい めぐみ')">
                     </div>
                     
-                    <!-- プロフィールとメッセージ -->
                     <div class="flex-grow text-center md:text-left pt-2">
                         <p class="text-xs font-bold text-emerald-500 mb-1 tracking-wider uppercase">グリーンリボンライダー レースクイーン</p>
                         <h5 class="text-xl font-black text-gray-900 dark:text-white mb-2">いしい めぐみ</h5>
-                        <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400 mb-4">
+                        <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400 mb-4 leading-relaxed">
                             レースクイーン / インフルエンサー / スノーボードインストラクター / 予備自衛官<br>
                             東京都在住
                         </p>
@@ -581,8 +433,143 @@
                         <div class="relative">
                             <span class="absolute -top-4 -left-2 md:-left-4 text-4xl text-emerald-100 dark:text-emerald-900/50 font-serif leading-none opacity-50 z-0 pointer-events-none">"</span>
                             <div class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed space-y-4 relative z-10">
-                                <p>今回ご縁があり、グリーンリボンライダー様でレースクイーンさせていただくことになりとても嬉しいです。<br>チーム一丸となって応援させていただきたいです。どうぞよろしくお願いします！</p>
+                                <p>今回ご縁があり、グリーンリボンライダー様でレースクイーンさせていただくことになりとても嬉しいです。<br>チーム一丸となって応援させていただきたいです。よろしくお願いします！</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">活動ギャラリー</h2>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto mb-6"></div>
+                <p class="text-gray-400">レース参戦や啓発活動の様子</p>
+            </div>
+
+            <!-- CSS Gridを使用した、左から右に順番に並ぶレイアウト（見切れなし・比率維持） -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+                
+                <!-- ギャラリー画像 1 -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_7556.jpg" alt="チームメンバーとバイク" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Team Photo 1')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">ピットでの集合写真</p>
+                            <p class="text-emerald-400 text-xs mt-1">2023年 レース活動</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ギャラリー画像 2 -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_7555.jpg" alt="ライダー集合写真" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Riders Photo')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">ライダー出陣</p>
+                            <p class="text-emerald-400 text-xs mt-1">もて耐 パドックにて</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ギャラリー画像 3 -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_7558.jpg" alt="チームメンバー集合写真" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Team Photo 2')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">チーム一丸となって</p>
+                            <p class="text-emerald-400 text-xs mt-1">皆で繋ぐ命のメッセージ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 追加枠 01 (横型) -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_8594.jpg" alt="チーム全員で" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Horizontal 01')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">活動の様子 01 (横型)</p>
+                            <p class="text-emerald-400 text-xs mt-1">命のリレーを</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 追加枠 02 (縦型) -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_1278.jpg" alt="株式会社DEPARTURE代表" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, 'Vertical 01')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">活動の様子 02 (縦型)</p>
+                            <p class="text-emerald-400 text-xs mt-1">株式会社DEPARTURE代表</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 追加枠 03 (横型) -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_8602.jpg" alt="代表とレーサー" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Horizontal 02')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">活動の様子 03 (横型)</p>
+                            <p class="text-emerald-400 text-xs mt-1">代表とレーサー</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 追加枠 04 (縦型) -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_8489.jpg" alt="レースクイーン" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, 'Vertical 02')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">活動の様子 04 (縦型)</p>
+                            <p class="text-emerald-400 text-xs mt-1">レースクイーン</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 追加枠 05 (横型) -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_8595.jpg" alt="チームメンバー" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Horizontal 03')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">活動の様子 05 (横型)</p>
+                            <p class="text-emerald-400 text-xs mt-1">チームメンバー</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 追加枠 06 (縦型) -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_8501.jpg" alt="RBアナウンサーも応援" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, 'Vertical 03')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">活動の様子 06 (縦型)</p>
+                            <p class="text-emerald-400 text-xs mt-1">RBアナウンサーも応援</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 追加枠 07 (横型) -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_8596.jpg" alt="レーサーとレースクイーン" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Horizontal 04')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">活動の様子 07 (横型)</p>
+                            <p class="text-emerald-400 text-xs mt-1">レーサーとレースクイーン</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 追加枠 08 (縦型) -->
+                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
+                    <img src="IMG_1285.jpg" alt="レースクイーンと応援メンバー" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, 'Vertical 04')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-4 w-full">
+                            <p class="text-white font-bold text-sm">活動の様子 08 (縦型)</p>
+                            <p class="text-emerald-400 text-xs mt-1">レースクイーンと応援メンバー</p>
                         </div>
                     </div>
                 </div>
@@ -628,9 +615,8 @@
             </div>
 
             <div class="bg-white dark:bg-dark-bg rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100 dark:border-gray-800 fade-in-up">
-                <!-- Formspreeの連携用フォーム -->
-                <form action="https://formspree.io/f/mykrgbyv" method="POST" class="space-y-6">
-                    <!-- 受信時のメール件名を固定して、別サイトからの問い合わせと区別しやすくする -->
+                <!-- ここにFormspreeの新しいフォームIDを設定してください -->
+                <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="space-y-6">
                     <input type="hidden" name="_subject" value="【グリーンリボンライダー】Webサイトからのお問い合わせ">
                     
                     <div>
@@ -673,12 +659,10 @@
     </footer>
 
     <script>
-        // ダークモード切り替えロジック
         const themeToggleBtn = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-        // 初期アイコンの表示
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             lightIcon.classList.remove('hidden');
             document.documentElement.classList.add('dark');
@@ -700,7 +684,6 @@
             }
         });
 
-        // スクロール時のフェードインアニメーション (Intersection Observer)
         document.addEventListener("DOMContentLoaded", function() {
             const observerOptions = {
                 root: null,
