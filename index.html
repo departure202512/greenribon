@@ -32,6 +32,9 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     
+    <!-- ★追加: サイトを開いた瞬間に一番重い背景画像を裏で最優先読み込みさせる設定 -->
+    <link rel="preload" href="IMG_7557.jpg" as="image">
+    
     <style>
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -63,7 +66,6 @@
     </style>
     
     <script>
-        // 画像読み込みエラー時のフォールバック処理（必須）
         function imgFallback(img, width, height, text) {
             img.onerror = null;
             img.src = `https://placehold.co/${width}x${height}/10b981/ffffff?text=${encodeURIComponent(text)}`;
@@ -104,7 +106,8 @@
 
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="IMG_7557.jpg" alt="サーキットを走るグリーンリボンライダー" class="w-full h-full object-cover object-center" onerror="imgFallback(this, 1920, 1080, 'Hero Image')">
+            <!-- ★追加: fetchpriority="high" でブラウザに最優先で描画させる -->
+            <img src="IMG_7557.jpg" alt="サーキットを走るグリーンリボンライダー" class="w-full h-full object-cover object-center" fetchpriority="high" onerror="imgFallback(this, 1920, 1080, 'Hero Image')">
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
         
@@ -129,9 +132,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
                 <div class="flex justify-center mb-8">
-                    <!-- ロゴが見切れないように修正 -->
                     <div class="relative w-56 h-56 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-emerald-50 dark:border-gray-800 transition-transform hover:scale-105 duration-300 overflow-hidden">
-                        <img src="grlogo.jpg" alt="Green Ribbon Rider Logo" class="w-[85%] h-auto object-contain" onerror="imgFallback(this, 240, 240, 'Logo')">
+                        <img src="grlogo.jpg" alt="Green Ribbon Rider Logo" class="w-[85%] h-auto object-contain" loading="lazy" decoding="async" onerror="imgFallback(this, 240, 240, 'Logo')">
                     </div>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">私たちの活動について</h2>
@@ -316,14 +318,12 @@
                 <p class="text-gray-600 dark:text-gray-400">多様なバックグラウンドを持つメンバーが、ひとつの想いで繋がっています。</p>
             </div>
 
-            <!-- 代表 & サポーター (フローティング・カードデザイン) -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-32 mb-24 mt-32">
-                <!-- 代表: 武藤淳 -->
                 <div class="relative bg-gray-50 dark:bg-dark-surface rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-in-up flex flex-col px-8 pb-8 pt-44 md:pt-48">
-                    <!-- 丸枠から、頭〜胸元まで入る縦長の角丸四角形に変更 -->
                     <div class="absolute -top-24 left-1/2 transform -translate-x-1/2">
                         <div class="w-48 h-60 md:w-56 md:h-72 rounded-2xl border-4 border-white dark:border-dark-surface shadow-lg overflow-hidden bg-white">
-                            <img src="mj.jpg" alt="武藤淳" class="w-full h-full object-cover object-top transform scale-[1.15] origin-top" onerror="imgFallback(this, 224, 288, '武藤 淳')">
+                            <!-- ★追加: loading="lazy" decoding="async" -->
+                            <img src="mj.jpg" alt="武藤淳" class="w-full h-full object-cover object-top transform scale-[1.10] origin-top" loading="lazy" decoding="async" onerror="imgFallback(this, 224, 288, '武藤 淳')">
                         </div>
                     </div>
                     <div class="text-center mb-6">
@@ -348,12 +348,11 @@
                     </div>
                 </div>
 
-                <!-- サポーター: 山本ひろこ -->
                 <div class="relative bg-gray-50 dark:bg-dark-surface rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 fade-in-up flex flex-col px-8 pb-8 pt-44 md:pt-48" style="transition-delay: 0.1s;">
-                    <!-- 丸枠から、頭〜胸元まで入る縦長の角丸四角形に変更 -->
                     <div class="absolute -top-24 left-1/2 transform -translate-x-1/2">
                         <div class="w-48 h-60 md:w-56 md:h-72 rounded-2xl border-4 border-white dark:border-dark-surface shadow-lg overflow-hidden bg-white">
-                            <img src="yamamoto_2.jpg" alt="山本ひろこ" class="w-full h-full object-cover object-top" onerror="this.onerror=function(){imgFallback(this, 224, 288, '山本 ひろこ')}; this.src='yamamoto.jpg';">
+                            <!-- ★追加: loading="lazy" decoding="async" -->
+                            <img src="yamamoto_2.jpg" alt="山本ひろこ" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" onerror="this.onerror=function(){imgFallback(this, 224, 288, '山本 ひろこ')}; this.src='yamamoto.jpg';">
                         </div>
                     </div>
                     <div class="text-center mb-6">
@@ -378,7 +377,6 @@
                 </div>
             </div>
 
-            <!-- メンバーリスト (Riders & Mechanics) -->
                 <h4 class="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white border-b-2 border-emerald-500 inline-block mx-auto pb-2">Riders & Mechanics</h4>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center sm:text-left">
@@ -418,9 +416,9 @@
                 <h4 class="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white border-b-2 border-emerald-500 inline-block mx-auto pb-2">Race Queen</h4>
                 
                 <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-                    <!-- メインプロフィール写真 (縦型に変更) -->
                     <div class="w-2/3 sm:w-1/2 md:w-64 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-                        <img src="IMG_8842.jpg" alt="いしい めぐみ" class="w-full h-auto aspect-[2/3] object-cover object-top" onerror="imgFallback(this, 400, 600, 'メイン写真 (縦)')">
+                        <!-- ★追加: loading="lazy" decoding="async" -->
+                        <img src="IMG_8842.jpg" alt="いしい めぐみ" class="w-full h-auto aspect-[2/3] object-cover object-top" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, 'メイン写真 (縦)')">
                     </div>
                     
                     <div class="flex-grow text-center md:text-left pt-2">
@@ -440,15 +438,17 @@
                     </div>
                 </div>
 
-                <!-- 追加の縦型写真3枚 -->
                 <div class="mt-10 grid grid-cols-3 gap-3 md:gap-6">
                     <div class="rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 transform-gpu transition-transform hover:scale-105 duration-300">
+                        <!-- ★追加: loading="lazy" decoding="async" -->
                         <img src="IMG_1286.jpg" alt="いしい めぐみ サブ1" class="w-full h-auto aspect-[2/3] object-cover object-center" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, '追加写真 1')">
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 transform-gpu transition-transform hover:scale-105 duration-300">
+                        <!-- ★追加: loading="lazy" decoding="async" -->
                         <img src="IMG_1287.jpg" alt="いしい めぐみ サブ2" class="w-full h-auto aspect-[2/3] object-cover object-center" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, '追加写真 2')">
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 transform-gpu transition-transform hover:scale-105 duration-300">
+                        <!-- ★追加: loading="lazy" decoding="async" -->
                         <img src="IMG_1288.jpg" alt="いしい めぐみ サブ3" class="w-full h-auto aspect-[2/3] object-cover object-center" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, '追加写真 3')">
                     </div>
                 </div>
@@ -464,10 +464,8 @@
                 <p class="text-gray-400">レース参戦や啓発活動の様子</p>
             </div>
 
-            <!-- CSS Gridを使用した、左から右に順番に並ぶレイアウト（見切れなし・比率維持） -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
                 
-                <!-- ギャラリー画像 1 -->
                 <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
                     <img src="IMG_7556.jpg" alt="チームメンバーとバイク" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Team Photo 1')">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
@@ -478,7 +476,6 @@
                     </div>
                 </div>
 
-                <!-- ギャラリー画像 2 -->
                 <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
                     <img src="IMG_7555.jpg" alt="ライダー集合写真" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Riders Photo')">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
@@ -489,7 +486,6 @@
                     </div>
                 </div>
 
-                <!-- ギャラリー画像 3 -->
                 <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
                     <img src="IMG_7558.jpg" alt="チームメンバー集合写真" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Team Photo 2')">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
@@ -587,69 +583,22 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- 追加枠 09 (横型) -->
-                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
-                    <img src="IMG_8491.jpg" alt="メディア取材" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 600, 400, 'Horizontal 04')">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                        <div class="p-4 w-full">
-                            <p class="text-white font-bold text-sm"></p>
-                            <p class="text-emerald-400 text-xs mt-1">メディア取材</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 追加枠 10 (縦型) -->
-                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
-                    <img src="IMG_8443.jpg" alt="チームレーサー" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, 'Vertical 04')">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                        <div class="p-4 w-full">
-                            <p class="text-white font-bold text-sm"></p>
-                            <p class="text-emerald-400 text-xs mt-1">チームレーサー</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 追加枠 11 (縦型) -->
-                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
-                    <img src="IMG_8396.jpg" alt="チーム" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, 'Vertical 04')">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                        <div class="p-4 w-full">
-                            <p class="text-white font-bold text-sm"></p>
-                            <p class="text-emerald-400 text-xs mt-1">チーム</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 追加枠 12 (縦型) -->
-                <div class="w-full relative group rounded-xl overflow-hidden shadow-lg bg-gray-800 border border-gray-700 transform-gpu">
-                    <img src="IMG_8408.jpg" alt="チームレーサー" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" onerror="imgFallback(this, 400, 600, 'Vertical 04')">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                        <div class="p-4 w-full">
-                            <p class="text-white font-bold text-sm"></p>
-                            <p class="text-emerald-400 text-xs mt-1">チームレーサー</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- === 新規追加: YouTube動画セクション === -->
     <section id="movie" class="py-24 bg-white dark:bg-dark-bg transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Movie</h2>
                 <div class="w-16 h-1 bg-emerald-500 mx-auto mb-6"></div>
-                <p class="text-gray-600 dark:text-gray-400">公式YouTubeチャンネルなどからの最新動画</p>
+                <p class="text-gray-600 dark:text-gray-400">公式YouTubeチャンネルからの最新動画</p>
             </div>
 
-            <!-- YouTubeグリッドレイアウト (2動画用に max-w-5xl を設定して中央に寄せる) -->
             <div class="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto gap-8">
-                <!-- 動画枠 1: エコランバトル -->
                 <div class="bg-gray-50 dark:bg-dark-surface rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 fade-in-up transform-gpu transition-transform hover:scale-105 duration-300">
                     <div class="relative w-full pt-[56.25%] bg-black">
-                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/sUU4Z1KtR9c?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/sUU4Z1KtR9c?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     <div class="p-5">
                         <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2 line-clamp-2">【グリーンリボンライダーエコランバトル2022】木村英里アナウンサーが伊香保温泉♨️にルンルンでやってきたが……</h3>
@@ -657,25 +606,23 @@
                     </div>
                 </div>
 
-                <!-- 動画枠 2: バイクレースで社会貢献 -->
                 <div class="bg-gray-50 dark:bg-dark-surface rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800 fade-in-up transform-gpu transition-transform hover:scale-105 duration-300" style="transition-delay: 0.1s;">
                     <div class="relative w-full pt-[56.25%] bg-black">
-                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/pKnelyk-3pY?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/pKnelyk-3pY?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     <div class="p-5">
-                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2 line-clamp-2">【バイクファン必見】グリーンリボンライダーがバイクレースで社会貢献！</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">臓器移植の啓発活動を行うグリーンリボンライダーのレースを通じた社会貢献活動に迫ります。</p>
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2 line-clamp-2">医療DX推進 マイナ免許証の重要性</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">なぜライダーにマイナ免許証が必要なのか、代表が熱く語ります。</p>
                     </div>
                 </div>
             </div>
 
-            <!-- YouTubeチャンネルへのリンクボタン -->
             <div class="text-center mt-12 fade-in-up" style="transition-delay: 0.2s;">
                 <a href="https://www.youtube.com/channel/UC64LnRf_JitAXG_XKkyO_5Q" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 md:px-8 py-4 text-sm md:text-base font-bold text-white transition-all duration-200 bg-[#FF0000] border border-transparent rounded-full shadow-lg hover:bg-red-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">
                     <svg class="w-6 h-6 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.418-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd"></path>
                     </svg>
-                    アナ THE LIVE！公式YouTubeチャンネル
+                    アナ THE LIVE！公式チャンネルを見る
                 </a>
             </div>
         </div>
@@ -719,7 +666,6 @@
             </div>
 
             <div class="bg-white dark:bg-dark-bg rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100 dark:border-gray-800 fade-in-up">
-                <!-- ここにFormspreeの新しいフォームIDを設定してください -->
                 <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="space-y-6">
                     <input type="hidden" name="_subject" value="【グリーンリボンライダー】Webサイトからのお問い合わせ">
                     
@@ -791,8 +737,10 @@
         document.addEventListener("DOMContentLoaded", function() {
             const observerOptions = {
                 root: null,
-                rootMargin: '0px',
-                threshold: 0.15
+                // ★追加: 画面に入る「50px手前」から早めに読み込みとアニメーションを開始する
+                rootMargin: '50px 0px',
+                // ★追加: 要素が「5%」見えた瞬間にすぐ表示を開始する（以前は15%）
+                threshold: 0.05
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
